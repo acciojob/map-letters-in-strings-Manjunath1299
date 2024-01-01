@@ -1,18 +1,15 @@
-//your JS code here. If required.
 function mapLetters(word) {
-  const letterMap = {};
+    const letterMap = {};
 
-  for (let i = 0; i < word.length; i++) {
-    const letter = word[i];
-    const symbolLetter = Symbol(letter); // Convert to symbol for key
+    for (let i = 0; i < word.length; i++) {
+        const letter = word[i];
 
-    letterMap[symbolLetter] = letterMap[symbolLetter] || []; // Initialize array if needed
-    letterMap[symbolLetter].push(i); // Add index to array
-  }
+        if (!letterMap[letter]) {
+            letterMap[letter] = [i];
+        } else {
+            letterMap[letter].push(i);
+        }
+    }
 
-  return letterMap;
+    return letterMap;
 }
-
-// Example usage:
-const result = mapLetters("dodo");
-console.log(result); // Output: { d: [0, 2], o: [1, 3] }
